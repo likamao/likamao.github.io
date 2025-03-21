@@ -4,6 +4,64 @@
   
   
   <entry>
+    <title>VMware Workstation Pro 17 安装 Ubuntu Server 24.04 LTS 虚拟机并交互</title>
+    <link href="/2025/03/21/develop/How%20to%20legally%20use%20the%20ubuntu%20server%20in%20the%20VM%20in%202025%20and%20exchange%20data/"/>
+    <url>/2025/03/21/develop/How%20to%20legally%20use%20the%20ubuntu%20server%20in%20the%20VM%20in%202025%20and%20exchange%20data/</url>
+    
+    <content type="html"><![CDATA[<h3 id="Install-Ubuntu-Server-in-the-Virtual-Machine-VM"><a href="#Install-Ubuntu-Server-in-the-Virtual-Machine-VM" class="headerlink" title="Install Ubuntu Server in the Virtual Machine (VM)"></a>Install Ubuntu Server in the Virtual Machine (VM)</h3><p>瞎几把装，default</p><h3 id="如何交互？"><a href="#如何交互？" class="headerlink" title="如何交互？"></a>如何交互？</h3><p>任何没有GUI 的发行版都不建议直接通过VM 上的终端进行直接操作，因为你的本地自带的终端都比它好多了。</p><ol><li><p>如果你本地已经有了一个强大的 Terminal, 那么直接用就好了，比如 iTerm2, 或者是 Windows 自带的命令行。如果没有，我推荐的是Xterminal 含有自动拼接命令，开源，免费版本在任何时候完全够用！</p></li><li><p>你需要配置VM 的端口转发，以便于让你的宿主机访问至VM 内的Ubuntu Server.</p><ol><li>打开VMware虚拟网络编辑器，点击更改设置解锁不可修改的配置项。（open global menu, and click on “Edit virtual network settings”）</li></ol></li><li><p>在dialog 中，点击需要管理员配置的按钮</p></li><li><p>如果你只有一台 ubuntu server ,那么点击 VMnet8 选项，然后click on “NAT settings”</p></li><li><p>查看子网网关，如果是192.168.1.1，那你随便设置一个子网网关，比如192.168.1.222，然后点击应用。</p></li><li><p>然后你需要添加端口映射规则（add Map incoming port）</p></li><li><p>这里建议输入 22 ，可以在Xterminal 中输入 ssh 用户名@192.168.1.222 -p 22 即可登录到VM 内的Ubuntu Server。当然你也可以映射 host <strong>12333</strong> 端口到VM 内的  virtual machine <strong>22</strong> 端口。</p></li><li><p>关掉子窗口，然后在一开始的main window保存，等待VM自己重启服务.</p></li><li><p>你需要进入你的 virtual machine 配置静态IP,</p><ol><li><code>sudo vim /etc/netplan/01-network-manager-all.yaml</code></li><li>这是DHCP 动态IP 配置： <code>dhcp4: ture</code></li><li>你需要从这一行开始变更并一起追加： <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">enp0s3:</span><br><span class="hljs-attr">dhcp4:</span> <span class="hljs-literal">no</span><br><span class="hljs-attr">addresses:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-number">192.168</span><span class="hljs-number">.3</span><span class="hljs-number">.50</span><span class="hljs-string">/24</span><br><span class="hljs-attr">routes:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">to:</span> <span class="hljs-string">default</span><br>    <span class="hljs-attr">via:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.3</span><span class="hljs-number">.1</span><br><span class="hljs-attr">nameservers:</span><br>  <span class="hljs-attr">addresses:</span> [<span class="hljs-number">223.6</span><span class="hljs-number">.6</span><span class="hljs-number">.6</span>, <span class="hljs-number">8.8</span><span class="hljs-number">.8</span><span class="hljs-number">.8</span>]<br></code></pre></td></tr></table></figure> in this yaml files:</li></ol><ul><li>enp0s3是网络接口的名称，您需要将其替换为您实际的网络接口名称。</li><li>addresses: 192.168.3.50&#x2F;24 是静态IP地址和子网掩码。</li><li>routes: 192.168.3.1 是默认网关。</li><li>nameservers: 223.6.6.6和8.8.8.8是您选择的DNS服务器。</li></ul><ol start="4"><li>保存并退出，然后执行 <code>sudo netplan apply</code> 应用配置。</li></ol></li><li><p>接着，在virtual machine install ssh server, <code>sudo apt-get install openssh-server</code></p></li><li><p>启动 ssh 服务，<code>sudo systemctl start ssh</code> 或 <code>sudo /etc/init.d/ssh start</code></p></li><li><p>查看服务启动成功与否：<code>netstat -tpl | grep ssh</code></p></li><li><p>在Xterminal 中输入 ssh 用户名@192.168.1.222 -p 22 即可登录到VM 内的Ubuntu Server。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Develop</category>
+      
+      <category>Ubuntu-Server</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>VM</tag>
+      
+      <tag>Ubuntu</tag>
+      
+      <tag>Server</tag>
+      
+      <tag>Data Exchange</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>use Git create a demo Pj</title>
+    <link href="/2025/03/14/develop/use%20Git%20create%20a%20demo%20Pj/"/>
+    <url>/2025/03/14/develop/use%20Git%20create%20a%20demo%20Pj/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">这里主要还是Github 的创建方式，真奇怪，git 创建的默认分支</span><br>git init -b main (创建的main)<br><br>git config user.email &lt;email&gt; &amp; git config user.name&lt;name&gt; // 我没有用全局的习惯，因为之前在公司里还需要自己写插件，然后自己的插件又不被允许上传至公司git<br><br>git remote add origin &lt;仓库的地址&gt;<br><br>git pull origin main<br><br>git add .<br><br>git commit -m &quot;commit desc&quot;<br><br>git push origin main<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>JAVA-BASE</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JAVA</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>INFP怎么转成其他人格（创造性思维者、逻辑思维者、现实主义者、执行力强者）</title>
     <link href="/2025/03/11/psychology/infp%20to%20other%20mbti/"/>
     <url>/2025/03/11/psychology/infp%20to%20other%20mbti/</url>
