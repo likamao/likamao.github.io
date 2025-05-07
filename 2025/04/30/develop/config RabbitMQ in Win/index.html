@@ -19,25 +19,23 @@
   <meta name="author" content="YI MING HUANG">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Install Ubuntu Server in the Virtual Machine (VM)瞎几把装，default 如何交互？任何没有GUI 的发行版都不建议直接通过VM 上的终端进行直接操作，因为你的本地自带的终端都比它好多了。  如果你本地已经有了一个强大的 Terminal, 那么直接用就好了，比如 iTerm2, 或者是 Windows 自带的命令行。如果没有，我推荐的是Xterm">
+    <meta name="description" content="如何在Windows 上配置 RabbitMQ之前的电脑爆炸了，现在重装系统，以记录如何配置RabbitMQ RabbitMQ_DOCRabbitMQ_INSTALL 本地直接跑一个docker ,或者远程服务器latest RabbitMQ 4.x1docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:4">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VMware Workstation Pro 17 安装 Ubuntu Server 24.04 LTS 虚拟机并交互">
-<meta property="og:url" content="http://example.com/2025/03/21/develop/How%20to%20legally%20use%20the%20ubuntu%20server%20in%20the%20VM%20in%202025%20and%20exchange%20data/index.html">
+<meta property="og:title" content="config RabbitMQ in Win">
+<meta property="og:url" content="http://example.com/2025/04/30/develop/config%20RabbitMQ%20in%20Win/index.html">
 <meta property="og:site_name" content="南港听夏">
-<meta property="og:description" content="Install Ubuntu Server in the Virtual Machine (VM)瞎几把装，default 如何交互？任何没有GUI 的发行版都不建议直接通过VM 上的终端进行直接操作，因为你的本地自带的终端都比它好多了。  如果你本地已经有了一个强大的 Terminal, 那么直接用就好了，比如 iTerm2, 或者是 Windows 自带的命令行。如果没有，我推荐的是Xterm">
+<meta property="og:description" content="如何在Windows 上配置 RabbitMQ之前的电脑爆炸了，现在重装系统，以记录如何配置RabbitMQ RabbitMQ_DOCRabbitMQ_INSTALL 本地直接跑一个docker ,或者远程服务器latest RabbitMQ 4.x1docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:4">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-03-21T08:50:16.000Z">
-<meta property="article:modified_time" content="2025-03-21T09:14:48.746Z">
+<meta property="article:published_time" content="2025-04-30T10:05:11.000Z">
+<meta property="article:modified_time" content="2025-05-07T03:20:10.232Z">
 <meta property="article:author" content="YI MING HUANG">
-<meta property="article:tag" content="VM">
-<meta property="article:tag" content="Ubuntu">
-<meta property="article:tag" content="Server">
-<meta property="article:tag" content="Data Exchange">
+<meta property="article:tag" content="win">
+<meta property="article:tag" content="RabbitMQ">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>VMware Workstation Pro 17 安装 Ubuntu Server 24.04 LTS 虚拟机并交互 - 南港听夏</title>
+  <title>config RabbitMQ in Win - 南港听夏</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="VMware Workstation Pro 17 安装 Ubuntu Server 24.04 LTS 虚拟机并交互"></span>
+            <span id="subtitle" data-typed-text="config RabbitMQ in Win"></span>
           
         </div>
 
@@ -214,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-21 16:50" pubdate>
-          2025年3月21日 下午
+        <time datetime="2025-04-30 18:05" pubdate>
+          2025年4月30日 晚上
         </time>
       </span>
     
@@ -226,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          535 字
+          456 字
         
       </span>
     
@@ -237,7 +235,7 @@
         
         
         
-          5 分钟
+          4 分钟
         
       </span>
     
@@ -274,59 +272,29 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">VMware Workstation Pro 17 安装 Ubuntu Server 24.04 LTS 虚拟机并交互</h1>
+            <h1 id="seo-header">config RabbitMQ in Win</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="Install-Ubuntu-Server-in-the-Virtual-Machine-VM"><a href="#Install-Ubuntu-Server-in-the-Virtual-Machine-VM" class="headerlink" title="Install Ubuntu Server in the Virtual Machine (VM)"></a>Install Ubuntu Server in the Virtual Machine (VM)</h3><p>瞎几把装，default</p>
-<h3 id="如何交互？"><a href="#如何交互？" class="headerlink" title="如何交互？"></a>如何交互？</h3><p>任何没有GUI 的发行版都不建议直接通过VM 上的终端进行直接操作，因为你的本地自带的终端都比它好多了。</p>
-<ol>
-<li><p>如果你本地已经有了一个强大的 Terminal, 那么直接用就好了，比如 iTerm2, 或者是 Windows 自带的命令行。如果没有，我推荐的是Xterminal 含有自动拼接命令，开源，免费版本在任何时候完全够用！</p>
-</li>
-<li><p>你需要配置VM 的端口转发，以便于让你的宿主机访问至VM 内的Ubuntu Server.</p>
-<ol>
-<li>打开VMware虚拟网络编辑器，点击更改设置解锁不可修改的配置项。（open global menu, and click on “Edit virtual network settings”）</li>
-</ol>
-</li>
-<li><p>在dialog 中，点击需要管理员配置的按钮</p>
-</li>
-<li><p>如果你只有一台 ubuntu server ,那么点击 VMnet8 选项，然后click on “NAT settings”</p>
-</li>
-<li><p>查看子网网关，如果是192.168.1.1，那你随便设置一个子网网关，比如192.168.1.222，然后点击应用。</p>
-</li>
-<li><p>然后你需要添加端口映射规则（add Map incoming port）</p>
-</li>
-<li><p>这里建议输入 22 ，可以在Xterminal 中输入 ssh 用户名@192.168.1.222 -p 22 即可登录到VM 内的Ubuntu Server。当然你也可以映射 host <strong>12333</strong> 端口到VM 内的  virtual machine <strong>22</strong> 端口。</p>
-</li>
-<li><p>关掉子窗口，然后在一开始的main window保存，等待VM自己重启服务.</p>
-</li>
-<li><p>你需要进入你的 virtual machine 配置静态IP,</p>
-<ol>
-<li><code>sudo vim /etc/netplan/01-network-manager-all.yaml</code></li>
-<li>这是DHCP 动态IP 配置： <code>dhcp4: ture</code></li>
-<li>你需要从这一行开始变更并一起追加： <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">enp0s3:</span><br><span class="hljs-attr">dhcp4:</span> <span class="hljs-literal">no</span><br><span class="hljs-attr">addresses:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-number">192.168</span><span class="hljs-number">.3</span><span class="hljs-number">.50</span><span class="hljs-string">/24</span><br><span class="hljs-attr">routes:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">to:</span> <span class="hljs-string">default</span><br>    <span class="hljs-attr">via:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.3</span><span class="hljs-number">.1</span><br><span class="hljs-attr">nameservers:</span><br>  <span class="hljs-attr">addresses:</span> [<span class="hljs-number">223.6</span><span class="hljs-number">.6</span><span class="hljs-number">.6</span>, <span class="hljs-number">8.8</span><span class="hljs-number">.8</span><span class="hljs-number">.8</span>]<br></code></pre></td></tr></table></figure>
- in this yaml files:</li>
-</ol>
-<ul>
-<li>enp0s3是网络接口的名称，您需要将其替换为您实际的网络接口名称。</li>
-<li>addresses: 192.168.3.50&#x2F;24 是静态IP地址和子网掩码。</li>
-<li>routes: 192.168.3.1 是默认网关。</li>
-<li>nameservers: 223.6.6.6和8.8.8.8是您选择的DNS服务器。</li>
-</ul>
-<ol start="4">
-<li>保存并退出，然后执行 <code>sudo netplan apply</code> 应用配置。</li>
-</ol>
-</li>
-<li><p>接着，在virtual machine install ssh server, <code>sudo apt-get install openssh-server</code></p>
-</li>
-<li><p>启动 ssh 服务，<code>sudo systemctl start ssh</code> 或 <code>sudo /etc/init.d/ssh start</code></p>
-</li>
-<li><p>查看服务启动成功与否：<code>netstat -tpl | grep ssh</code></p>
-</li>
-<li><p>在Xterminal 中输入 ssh 用户名@192.168.1.222 -p 22 即可登录到VM 内的Ubuntu Server。</p>
-</li>
-</ol>
+                <h2 id="如何在Windows-上配置-RabbitMQ"><a href="#如何在Windows-上配置-RabbitMQ" class="headerlink" title="如何在Windows 上配置 RabbitMQ"></a>如何在Windows 上配置 RabbitMQ</h2><p>之前的电脑爆炸了，现在重装系统，以记录如何配置RabbitMQ</p>
+<p><a target="_blank" rel="noopener" href="https://www.rabbitmq.com/docs">RabbitMQ_DOC</a><br><a target="_blank" rel="noopener" href="https://www.rabbitmq.com/docs/download">RabbitMQ_INSTALL</a></p>
+<h3 id="本地直接跑一个docker-或者远程服务器"><a href="#本地直接跑一个docker-或者远程服务器" class="headerlink" title="本地直接跑一个docker ,或者远程服务器"></a>本地直接跑一个docker ,或者远程服务器</h3><h1 id="latest-RabbitMQ-4-x"><a href="#latest-RabbitMQ-4-x" class="headerlink" title="latest RabbitMQ 4.x"></a>latest RabbitMQ 4.x</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">docker</span> run -it --rm --name rabbitmq -p <span class="hljs-number">5672</span>:<span class="hljs-number">5672</span> -p <span class="hljs-number">15672</span>:<span class="hljs-number">15672</span> rabbitmq:<span class="hljs-number">4</span>-management<br></code></pre></td></tr></table></figure>
+
+<h3 id="下载windows包"><a href="#下载windows包" class="headerlink" title="下载windows包"></a>下载windows包</h3><p>访问<a target="_blank" rel="noopener" href="https://www.rabbitmq.com/docs/download#preview-releases">RabbitMQ</a></p>
+<p>到Installation Guides 下载Windows Installer</p>
+<h3 id="配置管理面板"><a href="#配置管理面板" class="headerlink" title="配置管理面板"></a>配置管理面板</h3><p>到安装目录的 sbin 运行扩展安装管理面板<br><code>.\rabbitmq-plugins.bat enable rabbitmq_management</code></p>
+<h3 id="访问管理面板"><a href="#访问管理面板" class="headerlink" title="访问管理面板"></a>访问管理面板</h3><p>管理员运行程序 RabbitMQ Service Start<br>打开<a target="_blank" rel="noopener" href="http://localhost:15672/">local management</a></p>
+<h3 id="如果管理面板无法打开"><a href="#如果管理面板无法打开" class="headerlink" title="如果管理面板无法打开"></a>如果管理面板无法打开</h3><p>还是在sbin 下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">.\rabbitmqctl start_app<br>.\rabbitmq-plugins.bat <span class="hljs-built_in">enable</span> rabbitmq_management<br>.\rabbitmqctl stop<br></code></pre></td></tr></table></figure>
+<p>随后确保 RabbitMQ Service Start</p>
+<h3 id="nginx-配置"><a href="#nginx-配置" class="headerlink" title="nginx 配置"></a>nginx 配置</h3><h3 id="Spring-Boot-代码"><a href="#Spring-Boot-代码" class="headerlink" title="Spring Boot 代码"></a>Spring Boot 代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java">### 项目启动同时启动消息队列，如果消息队列启动失败，则项目不应该启动成功<br><span class="hljs-meta">@Slf4j</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">InitRabbitMQ</span> &#123;<br><br>    <span class="hljs-meta">@PostConstruct</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">init</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-type">ConnectionFactory</span> <span class="hljs-variable">factory</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ConnectionFactory</span>();<br>            factory.setHost(<span class="hljs-string">&quot;localhost&quot;</span>);<br>            factory.setUsername(<span class="hljs-string">&quot;guest&quot;</span>);<br>            factory.setPassword(<span class="hljs-string">&quot;guest&quot;</span>);<br>            <span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> factory.newConnection();<br>            <span class="hljs-type">Channel</span> <span class="hljs-variable">channel</span> <span class="hljs-operator">=</span> connection.createChannel();<br><br>            <span class="hljs-type">String</span> <span class="hljs-variable">EXCHANGE_NAME</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;likaojbackendjudgeservice&quot;</span>;<br>            channel.exchangeDeclare(EXCHANGE_NAME, <span class="hljs-string">&quot;direct&quot;</span>);<br><br>            <span class="hljs-type">String</span> <span class="hljs-variable">QUEUE_NAME</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;judge_queue&quot;</span>;<br>            channel.queueDeclare(QUEUE_NAME, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">null</span>);<br>            channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, <span class="hljs-string">&quot;judge_routingkey&quot;</span>);<br>            connection.close();<br>        &#125; <span class="hljs-keyword">catch</span> (IOException | TimeoutException e) &#123;<br>            log.error(<span class="hljs-string">&quot;RabbitMQ init error: &#123;&#125;&quot;</span>, e.getMessage());<br>        &#125;<br>        log.info(<span class="hljs-string">&quot;RabbitMQ init success.&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 消息生产者</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MessageProducer</span> &#123;<br><br>    <span class="hljs-meta">@Resource</span><br>    <span class="hljs-keyword">private</span> RabbitTemplate rabbitTemplate;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 发送消息</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> exchange   the name of the exchange</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> routingKey the routing key</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> message    a message to send</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sendMessage</span><span class="hljs-params">(String exchange, String routingKey, String message)</span> &#123;<br>        rabbitTemplate.convertAndSend(exchange, routingKey, message);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 消费者代码</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Slf4j</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MessageConsumer</span> &#123;<br>    <span class="hljs-meta">@Resource</span><br>    <span class="hljs-keyword">private</span> JudgeService judgeService;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 消费者方法，用于接收消息并处理</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> message     接收到的消息</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> channel     RabbitMQ通道</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> deliveryTag 消息的唯一标识符</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@SneakyThrows</span><br>    <span class="hljs-meta">@RabbitListener(queues = &#123;&quot;judge_queue&quot;&#125;, ackMode = &quot;MANUAL&quot;)</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">receiveMessage</span><span class="hljs-params">(String message, Channel channel, <span class="hljs-meta">@Header(AmqpHeaders.DELIVERY_TAG)</span> <span class="hljs-type">long</span> deliveryTag)</span> &#123;<br>        log.info(<span class="hljs-string">&quot;Received message: &#123;&#125;&quot;</span>, message);<br>        <span class="hljs-keyword">try</span> &#123;<br>           <span class="hljs-comment">// 对message 进行消费 （调用其他方法或入参处理）</span><br>            channel.basicAck(deliveryTag, <span class="hljs-literal">false</span>); <span class="hljs-comment">// 确认消息已被消费</span><br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            log.error(<span class="hljs-string">&quot;Judge failed: &#123;&#125;&quot;</span>, e.getMessage());<br>          <span class="hljs-comment">// 可以考虑入死信队列</span><br>            channel.basicNack(deliveryTag, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"># 如果引入了Springcloud alibaba 依赖，可以找下里面是否有rabbitMQ 的依赖<br># 然后直接引入<br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-amqp<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -345,12 +313,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Develop/" class="category-chain-item">Develop</a>
+  <a href="/categories/RabbitMQ/" class="category-chain-item">RabbitMQ</a>
   
   
     <span>></span>
     
-  <a href="/categories/Develop/Ubuntu-Server/" class="category-chain-item">Ubuntu-Server</a>
+  <a href="/categories/RabbitMQ/System/" class="category-chain-item">System</a>
   
   
 
@@ -367,13 +335,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/VM/" class="print-no-link">#VM</a>
+        <a href="/tags/win/" class="print-no-link">#win</a>
       
-        <a href="/tags/Ubuntu/" class="print-no-link">#Ubuntu</a>
-      
-        <a href="/tags/Server/" class="print-no-link">#Server</a>
-      
-        <a href="/tags/Data-Exchange/" class="print-no-link">#Data Exchange</a>
+        <a href="/tags/RabbitMQ/" class="print-no-link">#RabbitMQ</a>
       
     </div>
   
@@ -385,8 +349,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>VMware Workstation Pro 17 安装 Ubuntu Server 24.04 LTS 虚拟机并交互</div>
-      <div>http://example.com/2025/03/21/develop/How to legally use the ubuntu server in the VM in 2025 and exchange data/</div>
+      <div>config RabbitMQ in Win</div>
+      <div>http://example.com/2025/04/30/develop/config RabbitMQ in Win/</div>
     </div>
     <div class="license-meta">
       
@@ -398,7 +362,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年3月21日</div>
+          <div>2025年4月30日</div>
         </div>
       
       
@@ -430,18 +394,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/03/27/develop/how%20to%20install%20and%20config%20EndeavourOS/" title="how to install and config EndeavourOS">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">how to install and config EndeavourOS</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/03/14/develop/use%20Git%20create%20a%20demo%20Pj/" title="use Git create a demo Pj">
-                        <span class="hidden-mobile">use Git create a demo Pj</span>
+                      <a href="/2025/03/27/develop/how%20to%20install%20and%20config%20EndeavourOS/" title="how to install and config EndeavourOS">
+                        <span class="hidden-mobile">how to install and config EndeavourOS</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

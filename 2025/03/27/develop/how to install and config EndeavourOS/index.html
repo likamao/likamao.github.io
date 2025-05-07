@@ -19,25 +19,23 @@
   <meta name="author" content="YI MING HUANG">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Install Ubuntu Server in the Virtual Machine (VM)瞎几把装，default 如何交互？任何没有GUI 的发行版都不建议直接通过VM 上的终端进行直接操作，因为你的本地自带的终端都比它好多了。  如果你本地已经有了一个强大的 Terminal, 那么直接用就好了，比如 iTerm2, 或者是 Windows 自带的命令行。如果没有，我推荐的是Xterm">
+    <meta name="description" content="Install EndeavourOSFirst, download the ISO file of EndeavourOS from the official website. Then put the ISO file into a Ventory USB and boot from it. 配置软件源12[archlinuxcn]Server &#x3D; https:&#x2F;&#x2F;mirrors.tuna.t">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VMware Workstation Pro 17 安装 Ubuntu Server 24.04 LTS 虚拟机并交互">
-<meta property="og:url" content="http://example.com/2025/03/21/develop/How%20to%20legally%20use%20the%20ubuntu%20server%20in%20the%20VM%20in%202025%20and%20exchange%20data/index.html">
+<meta property="og:title" content="how to install and config EndeavourOS">
+<meta property="og:url" content="http://example.com/2025/03/27/develop/how%20to%20install%20and%20config%20EndeavourOS/index.html">
 <meta property="og:site_name" content="南港听夏">
-<meta property="og:description" content="Install Ubuntu Server in the Virtual Machine (VM)瞎几把装，default 如何交互？任何没有GUI 的发行版都不建议直接通过VM 上的终端进行直接操作，因为你的本地自带的终端都比它好多了。  如果你本地已经有了一个强大的 Terminal, 那么直接用就好了，比如 iTerm2, 或者是 Windows 自带的命令行。如果没有，我推荐的是Xterm">
+<meta property="og:description" content="Install EndeavourOSFirst, download the ISO file of EndeavourOS from the official website. Then put the ISO file into a Ventory USB and boot from it. 配置软件源12[archlinuxcn]Server &#x3D; https:&#x2F;&#x2F;mirrors.tuna.t">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-03-21T08:50:16.000Z">
-<meta property="article:modified_time" content="2025-03-21T09:14:48.746Z">
+<meta property="article:published_time" content="2025-03-27T03:57:33.000Z">
+<meta property="article:modified_time" content="2025-03-27T05:50:28.000Z">
 <meta property="article:author" content="YI MING HUANG">
-<meta property="article:tag" content="VM">
-<meta property="article:tag" content="Ubuntu">
-<meta property="article:tag" content="Server">
-<meta property="article:tag" content="Data Exchange">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="endeavouros">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>VMware Workstation Pro 17 安装 Ubuntu Server 24.04 LTS 虚拟机并交互 - 南港听夏</title>
+  <title>how to install and config EndeavourOS - 南港听夏</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="VMware Workstation Pro 17 安装 Ubuntu Server 24.04 LTS 虚拟机并交互"></span>
+            <span id="subtitle" data-typed-text="how to install and config EndeavourOS"></span>
           
         </div>
 
@@ -214,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-21 16:50" pubdate>
-          2025年3月21日 下午
+        <time datetime="2025-03-27 11:57" pubdate>
+          2025年3月27日 中午
         </time>
       </span>
     
@@ -226,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          535 字
+          241 字
         
       </span>
     
@@ -237,7 +235,7 @@
         
         
         
-          5 分钟
+          3 分钟
         
       </span>
     
@@ -274,59 +272,49 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">VMware Workstation Pro 17 安装 Ubuntu Server 24.04 LTS 虚拟机并交互</h1>
+            <h1 id="seo-header">how to install and config EndeavourOS</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="Install-Ubuntu-Server-in-the-Virtual-Machine-VM"><a href="#Install-Ubuntu-Server-in-the-Virtual-Machine-VM" class="headerlink" title="Install Ubuntu Server in the Virtual Machine (VM)"></a>Install Ubuntu Server in the Virtual Machine (VM)</h3><p>瞎几把装，default</p>
-<h3 id="如何交互？"><a href="#如何交互？" class="headerlink" title="如何交互？"></a>如何交互？</h3><p>任何没有GUI 的发行版都不建议直接通过VM 上的终端进行直接操作，因为你的本地自带的终端都比它好多了。</p>
-<ol>
-<li><p>如果你本地已经有了一个强大的 Terminal, 那么直接用就好了，比如 iTerm2, 或者是 Windows 自带的命令行。如果没有，我推荐的是Xterminal 含有自动拼接命令，开源，免费版本在任何时候完全够用！</p>
-</li>
-<li><p>你需要配置VM 的端口转发，以便于让你的宿主机访问至VM 内的Ubuntu Server.</p>
-<ol>
-<li>打开VMware虚拟网络编辑器，点击更改设置解锁不可修改的配置项。（open global menu, and click on “Edit virtual network settings”）</li>
-</ol>
-</li>
-<li><p>在dialog 中，点击需要管理员配置的按钮</p>
-</li>
-<li><p>如果你只有一台 ubuntu server ,那么点击 VMnet8 选项，然后click on “NAT settings”</p>
-</li>
-<li><p>查看子网网关，如果是192.168.1.1，那你随便设置一个子网网关，比如192.168.1.222，然后点击应用。</p>
-</li>
-<li><p>然后你需要添加端口映射规则（add Map incoming port）</p>
-</li>
-<li><p>这里建议输入 22 ，可以在Xterminal 中输入 ssh 用户名@192.168.1.222 -p 22 即可登录到VM 内的Ubuntu Server。当然你也可以映射 host <strong>12333</strong> 端口到VM 内的  virtual machine <strong>22</strong> 端口。</p>
-</li>
-<li><p>关掉子窗口，然后在一开始的main window保存，等待VM自己重启服务.</p>
-</li>
-<li><p>你需要进入你的 virtual machine 配置静态IP,</p>
-<ol>
-<li><code>sudo vim /etc/netplan/01-network-manager-all.yaml</code></li>
-<li>这是DHCP 动态IP 配置： <code>dhcp4: ture</code></li>
-<li>你需要从这一行开始变更并一起追加： <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">enp0s3:</span><br><span class="hljs-attr">dhcp4:</span> <span class="hljs-literal">no</span><br><span class="hljs-attr">addresses:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-number">192.168</span><span class="hljs-number">.3</span><span class="hljs-number">.50</span><span class="hljs-string">/24</span><br><span class="hljs-attr">routes:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">to:</span> <span class="hljs-string">default</span><br>    <span class="hljs-attr">via:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.3</span><span class="hljs-number">.1</span><br><span class="hljs-attr">nameservers:</span><br>  <span class="hljs-attr">addresses:</span> [<span class="hljs-number">223.6</span><span class="hljs-number">.6</span><span class="hljs-number">.6</span>, <span class="hljs-number">8.8</span><span class="hljs-number">.8</span><span class="hljs-number">.8</span>]<br></code></pre></td></tr></table></figure>
- in this yaml files:</li>
-</ol>
+                <h2 id="Install-EndeavourOS"><a href="#Install-EndeavourOS" class="headerlink" title="Install EndeavourOS"></a>Install EndeavourOS</h2><p>First, download the ISO file of EndeavourOS from the official website.</p>
+<p>Then put the ISO file into a Ventory USB and boot from it.</p>
+<h2 id="配置软件源"><a href="#配置软件源" class="headerlink" title="配置软件源"></a>配置软件源</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[archlinuxcn]<br>Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="hljs-variable">$arch</span><br></code></pre></td></tr></table></figure>
+
+<p>将其放到&#x2F;etc&#x2F;pacman.conf</p>
+<h2 id="配置输入法"><a href="#配置输入法" class="headerlink" title="配置输入法"></a>配置输入法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S fcitx5 fcitx5-configtool fcitx5-qt fcitx5-gtk fcitx5-chinese-addons <br>fcitx5-material-color<br></code></pre></td></tr></table></figure>
+
 <ul>
-<li>enp0s3是网络接口的名称，您需要将其替换为您实际的网络接口名称。</li>
-<li>addresses: 192.168.3.50&#x2F;24 是静态IP地址和子网掩码。</li>
-<li>routes: 192.168.3.1 是默认网关。</li>
-<li>nameservers: 223.6.6.6和8.8.8.8是您选择的DNS服务器。</li>
+<li><p>fcitx5: 输入法基础框架主程序</p>
+</li>
+<li><p>fcitx5-configtool(kcm-fcitx5)：输入法配置程序(KDE桌面环境的支持)</p>
+</li>
+<li><p>fcitx5-qt: QT5程序的支持 </p>
+</li>
+<li><p>fcitx5-gtk: GTK程序的支持 </p>
+</li>
+<li><p>fcitx5-chinese-addons: 简体中文输入的支持，云拼音</p>
+</li>
+<li><p>fcitx5-material-color：一款使用 Material Design 配色的 fcitx5 皮肤，旨在模仿 Windows 10 自带输入法的 UI</p>
+</li>
 </ul>
-<ol start="4">
-<li>保存并退出，然后执行 <code>sudo netplan apply</code> 应用配置。</li>
-</ol>
-</li>
-<li><p>接着，在virtual machine install ssh server, <code>sudo apt-get install openssh-server</code></p>
-</li>
-<li><p>启动 ssh 服务，<code>sudo systemctl start ssh</code> 或 <code>sudo /etc/init.d/ssh start</code></p>
-</li>
-<li><p>查看服务启动成功与否：<code>netstat -tpl | grep ssh</code></p>
-</li>
-<li><p>在Xterminal 中输入 ssh 用户名@192.168.1.222 -p 22 即可登录到VM 内的Ubuntu Server。</p>
-</li>
-</ol>
+<h3 id="修改环境变量"><a href="#修改环境变量" class="headerlink" title="修改环境变量"></a>修改环境变量</h3><p>放到 <code>/etc/profile</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> GTK_IM_MODULE=fcitx<br><span class="hljs-built_in">export</span> QT_IM_MODULE=fcitx<br><span class="hljs-built_in">export</span> XMODIFIERS=<span class="hljs-string">&quot;@im=fcitx&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="安装常用软件"><a href="#安装常用软件" class="headerlink" title="安装常用软件"></a>安装常用软件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S git vim zsh curl wget ranger htop neofetch<br><span class="hljs-built_in">sudo</span> pacman -S net-tools openssh<br><span class="hljs-built_in">sudo</span> pacman -S yay<br><br>yay -S wps-office-cn wps-office-mui-zh-cn ttf-wps-fonts<br>yay -S debtap<br>yay -S wemeet-bin <span class="hljs-comment"># 腾讯会议</span><br>yay -S google-chrome vivaldi visual-studio-code-bin intellij-idea-ultimate-edition dbeaver<br>yay -S variety <span class="hljs-comment"># 自动换壁纸</span><br>yay -S docker<br>yay -S netease-cloud-music<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S docker<br><span class="hljs-built_in">sudo</span> systemctl start docker<br><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">enable</span> docker<br></code></pre></td></tr></table></figure>
+
+<h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S jdk8-openjdk<br><span class="hljs-built_in">sudo</span> pacman -S jdk17-openjdk<br><span class="hljs-built_in">sudo</span> pacman -S jdk21-openjdk<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="nvm"><a href="#nvm" class="headerlink" title="nvm"></a>nvm</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash<br></code></pre></td></tr></table></figure>
+
+<h2 id="配置zsh"><a href="#配置zsh" class="headerlink" title="配置zsh"></a>配置zsh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S zsh<br>chsh -s /bin/zsh<br></code></pre></td></tr></table></figure>
+
+<h2 id="配置oh-my-zsh"><a href="#配置oh-my-zsh" class="headerlink" title="配置oh-my-zsh"></a>配置oh-my-zsh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sh -c <span class="hljs-string">&quot;<span class="hljs-subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S ttf-wqy-microhei ttf-wqy-zenhei<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -345,12 +333,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Develop/" class="category-chain-item">Develop</a>
+  <a href="/categories/linux/" class="category-chain-item">linux</a>
   
   
     <span>></span>
     
-  <a href="/categories/Develop/Ubuntu-Server/" class="category-chain-item">Ubuntu-Server</a>
+  <a href="/categories/linux/System/" class="category-chain-item">System</a>
   
   
 
@@ -367,13 +355,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/VM/" class="print-no-link">#VM</a>
+        <a href="/tags/linux/" class="print-no-link">#linux</a>
       
-        <a href="/tags/Ubuntu/" class="print-no-link">#Ubuntu</a>
-      
-        <a href="/tags/Server/" class="print-no-link">#Server</a>
-      
-        <a href="/tags/Data-Exchange/" class="print-no-link">#Data Exchange</a>
+        <a href="/tags/endeavouros/" class="print-no-link">#endeavouros</a>
       
     </div>
   
@@ -385,8 +369,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>VMware Workstation Pro 17 安装 Ubuntu Server 24.04 LTS 虚拟机并交互</div>
-      <div>http://example.com/2025/03/21/develop/How to legally use the ubuntu server in the VM in 2025 and exchange data/</div>
+      <div>how to install and config EndeavourOS</div>
+      <div>http://example.com/2025/03/27/develop/how to install and config EndeavourOS/</div>
     </div>
     <div class="license-meta">
       
@@ -398,7 +382,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年3月21日</div>
+          <div>2025年3月27日</div>
         </div>
       
       
@@ -430,9 +414,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/03/27/develop/how%20to%20install%20and%20config%20EndeavourOS/" title="how to install and config EndeavourOS">
+                      <a href="/2025/04/30/develop/config%20RabbitMQ%20in%20Win/" title="config RabbitMQ in Win">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">how to install and config EndeavourOS</span>
+                        <span class="hidden-mobile">config RabbitMQ in Win</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -440,8 +424,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/03/14/develop/use%20Git%20create%20a%20demo%20Pj/" title="use Git create a demo Pj">
-                        <span class="hidden-mobile">use Git create a demo Pj</span>
+                      <a href="/2025/03/21/develop/How%20to%20legally%20use%20the%20ubuntu%20server%20in%20the%20VM%20in%202025%20and%20exchange%20data/" title="VMware Workstation Pro 17 安装 Ubuntu Server 24.04 LTS 虚拟机并交互">
+                        <span class="hidden-mobile">VMware Workstation Pro 17 安装 Ubuntu Server 24.04 LTS 虚拟机并交互</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
