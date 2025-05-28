@@ -4,6 +4,39 @@
   
   
   <entry>
+    <title>use create-vue and config it.md</title>
+    <link href="/2025/05/21/develop/use%20create-vue%20and%20config%20it/"/>
+    <url>/2025/05/21/develop/use%20create-vue%20and%20config%20it/</url>
+    
+    <content type="html"><![CDATA[<h2 id="use-create-vue-and-config-it"><a href="#use-create-vue-and-config-it" class="headerlink" title="use create-vue and config it"></a>use create-vue and config it</h2><p><a href="https://cli.vuejs.org/zh/guide/creating-a-project.html#%E4%BD%BF%E7%94%A8%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2">vue-create</a></p><p><a href="https://play.vuejs.org/">play-vue</a></p><h3 id="1-install-create-vue"><a href="#1-install-create-vue" class="headerlink" title="1. install create-vue"></a>1. install create-vue</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> -g create-vue<br></code></pre></td></tr></table></figure><p>esLint 和 prettier 默认勾选，其他的单元测试可以不用操作。<br>全局状态处理器 pinia 必须勾选。<br>建议选择typeScript 优化整个项目操作</p><h3 id="2-create-a-new-project"><a href="#2-create-a-new-project" class="headerlink" title="2. create a new project"></a>2. create a new project</h3><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-built_in">create-vue</span> <span class="hljs-string">my-project</span><br></code></pre></td></tr></table></figure><h3 id="3-install-dependencies"><a href="#3-install-dependencies" class="headerlink" title="3. install dependencies"></a>3. install dependencies</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmake">cd my-<span class="hljs-keyword">project</span><br>npm <span class="hljs-keyword">install</span><br></code></pre></td></tr></table></figure><h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br></code></pre></td></tr></table></figure><h2 id="开发规范"><a href="#开发规范" class="headerlink" title="开发规范"></a>开发规范</h2><p>详见：<a href="https://cn.vuejs.org/guide/introduction">vue3</a></p><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>vue3</category>
+      
+      <category>front-end</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>ceate-vue</tag>
+      
+      <tag>develop</tag>
+      
+      <tag>vue3</tag>
+      
+      <tag>front-end</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>config RabbitMQ in Win</title>
     <link href="/2025/04/30/develop/config%20RabbitMQ%20in%20Win/"/>
     <url>/2025/04/30/develop/config%20RabbitMQ%20in%20Win/</url>
